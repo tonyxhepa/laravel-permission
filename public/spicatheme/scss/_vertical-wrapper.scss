@@ -1,0 +1,46 @@
+.page-body-wrapper {
+  min-height: 100vh;
+  padding-left: 0;
+  padding-right: 0;
+  width: calc(100% - #{$sidebar-width-lg});
+  transition: width $action-transition-duration $action-transition-timing-function, margin $action-transition-duration $action-transition-timing-function;
+  @media(max-width: 991px) {
+    width: 100%;
+  }
+
+  &.full-page-wrapper {
+    width: 100%;
+    min-height: 100vh;
+    padding-top: 0;
+  }
+}
+
+.main-panel {
+  @include display-flex();
+  @include flex-direction(column);
+  height: 100%;
+  .navbar-fixed-top & {
+    padding-top: $navbar-full-height;
+    @at-root #{selector-append(".documentation", &)} {
+      padding-top: 0;
+    }
+    @media(max-width: 991px) {
+      padding-top: $navbar-height;
+      width: 100%;
+    }
+  }
+  &.documentation {
+    padding-top: 0;
+  }
+}
+
+.content-wrapper {
+  background: $content-bg;
+  padding: 1.937rem 1.437rem;
+  width: 100%;
+  @include flex-grow(1);
+  @media(max-width: 767px) {
+    padding: 1.5rem 1.5rem;
+    flex-grow: 0;
+  }
+}

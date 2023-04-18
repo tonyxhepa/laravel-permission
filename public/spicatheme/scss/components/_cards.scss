@@ -1,0 +1,32 @@
+/* Cards */
+
+.card {
+  box-shadow: $card-box-shadow;
+  -webkit-box-shadow: $card-box-shadow;
+  -moz-box-shadow: $card-box-shadow;
+  -ms-box-shadow: $card-box-shadow;
+  .card-body {
+    padding: $card-padding-y $card-padding-x;
+    + .card-body {
+      padding-top: 1rem;
+    }
+  }
+  .card-title {
+    color: $card-title-color;
+    margin-bottom: .6rem;
+    text-transform: capitalize;
+    font-size: 1rem;
+    font-weight: 600;
+  }
+  .card-description {
+    margin-bottom: .875rem;
+    font-weight: 400;
+    color: $card-description-color;
+  }
+}
+
+@each $color, $value in $theme-colors {
+  .card-inverse-#{$color} {
+    @include card-inverse-variant(rgba(theme-color($color), .2), theme-color-level($color, 1), theme-color-level($color, 3));
+  }
+}

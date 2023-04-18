@@ -1,11 +1,11 @@
-<x-admin-layout>
-
-    <div class="py-12 w-full">
+@extends('spica.admintheme')
+@section('content')
+ <div class="py-12 w-full">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg p-2">
                 <div class="flex p-2">
                     <a href="{{ route('admin.permissions.index') }}"
-                        class="px-4 py-2 bg-green-700 hover:bg-green-500 text-slate-100 rounded-md">Permission Index</a>
+                        class="btn btn-outline-primary btn-fw">Permission Index</a>
                 </div>
                 <div class="flex flex-col p-2 bg-slate-100">
                     <div class="space-y-8 divide-y divide-gray-200 w-1/2 mt-10">
@@ -72,4 +72,4 @@
             </div>
         </div>
     </div>
-</x-admin-layout>
+@endsection

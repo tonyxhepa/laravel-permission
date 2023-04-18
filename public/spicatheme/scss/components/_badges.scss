@@ -1,0 +1,12 @@
+/* Badges */
+
+.badge {
+  border-radius: 0;
+  font-size: 12px;
+  line-height: 1;
+  padding: .282rem .47rem;
+  font-weight: normal;
+  &.badge-pill {
+    border-radius: 10rem;
+  }
+}
