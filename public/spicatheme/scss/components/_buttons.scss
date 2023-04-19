@@ -1,0 +1,88 @@
+/* Buttons */
+
+.btn {
+  font-size: $btn-font-size;
+  line-height: 1;
+  font-weight: 400;
+  i {
+    font-size: 1rem;
+  }
+  &.btn-rounded {
+    @include border-radius(50px);
+  }
+  &.btn-sm {
+    font-size: $btn-font-size-sm;
+  }
+  &.btn-lg {
+    font-size: $btn-font-size-lg;
+  }
+  &.btn-xs {
+    padding: $btn-padding-y-xs $btn-padding-x-xs;
+    font-size: $btn-font-size-xs;
+  }
+  /* Buttons with only icons */
+  &.btn-icon {
+    width: 42px;
+    height: 42px;
+    padding: 0;
+  }
+  /* Buttons with icon and text */
+  &.btn-icon-text {
+    .btn-icon-prepend {
+      margin-right: 0.5rem;
+    }
+    .btn-icon-append {
+      margin-left: 0.5rem;
+    }
+  }
+  &.btn-social-icon {
+    width: 50px;
+    height: 50px;
+    padding: 0;
+  }
+}
+.template-demo {
+  .btn {
+    margin-top: 1rem;
+    margin-right: 0.5rem;
+  }
+}
+
+.btn-group {
+  .btn {
+    + .btn {
+      border-left: 0;
+    }
+    margin: 0;
+  }
+}
+
+.btn-toolbar {
+  .btn-group {
+    + .btn-group {
+      @extend .ml-2;
+    }
+  }
+}
+/*social buttons*/
+@each $color, $value in $social-colors {
+  .btn-#{$color} {
+    @include social-button(social-color($color));
+  }
+  .btn-outline-#{$color} {
+    @include social-outline-button(social-color($color));
+  }
+}
+/* inverse buttons */
+@each $color, $value in $theme-colors {
+  .btn-inverse-#{$color} {
+    @include button-inverse-variant($value);
+  }
+  .btn-#{$color} {
+    &,
+    &:hover {
+      box-shadow: 0 2px 2px 0 rgba(theme-color($color), 0.14), 0 3px 1px -2px rgba(theme-color($color), 0.2),
+        0 1px 5px 0 rgba(theme-color($color), 0.12);
+    }
+  }
+}

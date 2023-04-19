@@ -1,0 +1,61 @@
+/* Demo Styles */
+
+.traffic-status {
+  .item {
+    .color-border {
+      width: 15px;
+      height: 3px;
+      margin-top: 5px;
+    }
+    &:nth-child(1) {
+      .color-border {
+        background: theme-color(info);
+      }
+    }
+    &:nth-child(2) {
+      .color-border {
+        background: theme-color(primary);
+      }
+    }
+    &:nth-child(3) {
+      .color-border {
+        background: theme-color(danger);
+      }
+    }
+  }  
+}
+
+.regional-chart-legend {
+  .item {
+    .item-box {
+      width: 15px;
+      height: 8px;
+    }
+  }
+}
+
+.server-status-legend {
+  .item {
+    .color-bullet {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      margin-right: 5px;
+    }
+    &:nth-child(1) {
+      .color-bullet {
+        background: #d8d8d8;
+      }
+    }
+    &:nth-child(2) {
+      .color-bullet {
+        background: theme-color(primary);
+      }
+    }
+    &:nth-child(3) {
+      .color-bullet {
+        background: theme-color(info);
+      }
+    }
+  }
+}

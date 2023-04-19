@@ -5,6 +5,8 @@ use App\Http\Controllers\Admin\PermissionController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\UserController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostsController;
+
 
 
 Route::get('/', function () {
@@ -31,5 +33,16 @@ Route::middleware(['auth', 'role:admin'])->name('admin.')->prefix('admin')->grou
     Route::post('/users/{user}/permissions', [UserController::class, 'givePermission'])->name('users.permissions');
     Route::delete('/users/{user}/permissions/{permission}', [UserController::class, 'revokePermission'])->name('users.permissions.revoke');
 });
+
+
+Route::prefix('blog')->group(function (){
+    Route::get('/', [PostsController::class, 'index'])->name('blog.index');
+     Route::get('/{id}', [PostsController::class, 'show'])->name('blog.show');
+     Route::get('/create', [PostsController::class, 'create'])->name('blog.create');
+      Route::post('/', [PostsController::class, 'store'])->name('blog.store');
+    Route::get('/edit/{id}', [PostsController::class, 'edit'])->name('blog.edit');
+
+
+} );
 
 require __DIR__ . '/auth.php';
